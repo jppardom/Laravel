@@ -1,11 +1,13 @@
 @extends('layouts.plantilla')
 
-@section('title', 'Mostrar Pelicula'. $peliculas->nombre)
+@section('title', 'Mostrar Pelicula'. $pelicula->nombre)
 
 @section('content')
-    <h1>Bienvenido a la película: {{$peliculas->nombre}}</h1>
-    <a href={{route('pelicula.index')}}>Volver a Peliculas</a>
-    <p><strong>Categoria:  </strong>{{$peliculas->categoria}}</p>
-    <p>{{$peliculas->descripcion}}</p>
+    <h1>Bienvenido a la película: {{$pelicula->nombre}}</h1>
+    <a href={{route('peliculas.index')}}>Volver a Pelicula</a>
+    <br>
+    <a href={{route('peliculas.edit', $pelicula)}}>Editar Pelicula</a>
+    <p><strong>Categoria:  </strong>{{$pelicula->categoria}}</p>
+    <p>{{$pelicula->descripcion}}</p>
 
 @endsection

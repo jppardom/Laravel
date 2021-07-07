@@ -17,11 +17,17 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', HomeControllers::class);
 
-Route::get('peliculas', [PeliuclasControllers::class, 'index'])->name('pelicula.index');
+Route::get('peliculas', [PeliuclasControllers::class, 'index'])->name('peliculas.index');
 
-Route::get('peliculas/nueva', [PeliuclasControllers::class, 'create'])->name('pelicula.create');
+Route::get('peliculas/nueva', [PeliuclasControllers::class, 'create'])->name('peliculas.create');
 
-Route::get('peliculas/{id}', [PeliuclasControllers::class, 'show'])->name('pelicula.show');
+Route::post('peliculas', [PeliuclasControllers::class, 'store'])->name('peliculas.store');
+
+Route::get('peliculas/{pelicula}', [PeliuclasControllers::class, 'show'])->name('peliculas.show');
+
+Route::get('peliculas/{pelicula}/edit',[PeliuclasControllers::class, 'edit'])->name('peliculas.edit');
+
+Route::put('peliculas/{pelicula}',[PeliuclasControllers::class, 'update'])->name('peliculas.update');
 
 
 // Route::get('peliculas/{pelicualas}/{categoria?}', function ($peliculas, $categoria = null) {

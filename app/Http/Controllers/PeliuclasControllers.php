@@ -8,16 +8,36 @@ use Illuminate\Http\Request;
 class PeliuclasControllers extends Controller
 {
     public function index(){
-        $peliculas = Pelicula::paginate();
+        $peliculas = Pelicula::orderBy('id', 'desc')->paginate();
         return view("peliculas.index", compact('peliculas'));
     }
 
     public function create(){
         return view("peliculas.create");
     }
+    public function store(Request $request){
+        $pelicula = new Pelicula();
+        $pelicula->nombre = $request->nombre;
+        $pelicula->descripcion = $request->descripcion;
+        $pelicula->categoria = $request->categoria;
+        $pelicula->save();
+        return redirect()->route('peliculas.show', $pelicula);
+    
+    }
 
-    public function show($id){
-        $peliculas = Pelicula::find($id);
-        return view("peliculas.show", compact('peliculas'));
+    public function show(Pelicula $pelicula){
+        return view("peliculas.show", compact('pelicula'));
+    }
+
+    public function edit(Pelicula $pelicula){
+        return view('peliculas.edit', compact('pelicula'));
+    }
+    public function update (Pelicula $pelicula, Request $request){
+        $pelicula->nombre = $request->nombre;
+        $pelicula->descripcion = $request->descripcion;
+        $pelicula->categoria = $request->categoria;
+        $pelicula->save();
+        return redirect()->route('peliculas.show', $pelicula);
+
     }
 }
