@@ -16,6 +16,13 @@ class PeliculasControllers extends Controller
         return view("peliculas.create");
     }
     public function store(Request $request){
+
+        $request->validate([
+            'nombre'=> 'required',
+            'descripcion' => 'required',
+            'categoria' => 'required'
+        ]);
+
         $pelicula = new Pelicula();
         $pelicula->nombre = $request->nombre;
         $pelicula->descripcion = $request->descripcion;
@@ -33,6 +40,12 @@ class PeliculasControllers extends Controller
         return view('peliculas.edit', compact('pelicula'));
     }
     public function update (Pelicula $pelicula, Request $request){
+        $request->validate([
+            'nombre'=> 'required',
+            'descripcion' => 'required',
+            'categoria' => 'required'
+        ]);
+
         $pelicula->nombre = $request->nombre;
         $pelicula->descripcion = $request->descripcion;
         $pelicula->categoria = $request->categoria;
