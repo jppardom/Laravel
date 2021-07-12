@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Pelicula;
 use Illuminate\Http\Request;
 
-class PeliuclasControllers extends Controller
+class PeliculasControllers extends Controller
 {
     public function index(){
         $peliculas = Pelicula::orderBy('id', 'desc')->paginate();
