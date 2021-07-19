@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\HomeControllers;
 use App\Http\Controllers\PeliculasControllers;
+use App\Models\Pelicula;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -28,6 +29,8 @@ Route::get('peliculas/{pelicula}', [PeliculasControllers::class, 'show'])->name(
 Route::get('peliculas/{pelicula}/edit',[PeliculasControllers::class, 'edit'])->name('peliculas.edit');
 
 Route::put('peliculas/{pelicula}',[PeliculasControllers::class, 'update'])->name('peliculas.update');
+
+Route::delete('peliculas/{pelicula}',[PeliculasControllers::class, 'destroy'])->name('peliculas.destroy');
 
 
 // Route::get('peliculas/{pelicualas}/{categoria?}', function ($peliculas, $categoria = null) {

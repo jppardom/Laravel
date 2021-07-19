@@ -32,4 +32,9 @@ class PeliculasControllers extends Controller
         $pelicula->update($request->all());
         return redirect()->route('peliculas.show', $pelicula);
     }
+
+    public function destroy(Pelicula $pelicula){
+        $pelicula->delete();
+        return redirect()->route('peliculas.index');
+    }
 }

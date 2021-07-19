@@ -10,4 +10,10 @@
     <p><strong>Categoria:  </strong>{{$pelicula->categoria}}</p>
     <p>{{$pelicula->descripcion}}</p>
 
+    <form action="{{route('peliculas.destroy', $pelicula)}}" method="POST">
+        @csrf
+        @method('delete')
+        <button type="submit">Eliminar Pelicula</button>
+    </form>
+
 @endsection
