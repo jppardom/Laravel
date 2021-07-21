@@ -8,8 +8,8 @@
     <ul>
         @foreach ($peliculas as $pelicula)
             <li>
-                <a href={{route('peliculas.show', $pelicula->id)}}>{{$pelicula->nombre}}</a>
-                
+                <a href={{route('peliculas.show', $pelicula)}}>{{$pelicula->nombre}}</a>
+
             </li>
         @endforeach
     </ul>
